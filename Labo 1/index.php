@@ -57,18 +57,20 @@
         echo '<br>';
         }
 
-    echo "<h1>Exercice 5 : </h1>";
+    echo "<h1>Exercice 6 : </h1>";
 
-    for ($i = 1; $i <= 10; $i++) {
-        if ($i % 3 == 0) {
+
+    // Cette boucle parcourt les nombres de 1 à 10.
+        for ($i = 1; $i <= 10; $i++) {
+        //Si le modulo du nombre = 0, Affiche l'etoile en en bleu
+        if ($i % 3 == 0) { 
             echo '<font color="blue">*</font>';
-        } elseif ($i % 3 == 1) {
+        } elseif ($i % 3 == 1) { ////Si le modulo du nombre = 0, Affiche l'etoile en vert
             echo '<font color="green">*</font>';
-        } else {
+        } else { 
             echo '<font color="red">*</font>';
         }
     }
-    
     ?>
 </body>
 </html>
