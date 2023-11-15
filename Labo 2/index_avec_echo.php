@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
-    <title>Labo 2 : Serialisation</title>
+    <title>Labo 2 : Serialization</title>
 </head>
 <body>
-    <h1>Exercices Labo 2: Serialisation</h1>
-    <h2>Information de la classe :</h2>
+    <h1>Exercices Labo 2: Serialization</h1>
 <?php
     //creation de la classe Serializator
     class Serializator {
@@ -18,7 +17,7 @@
             fwrite($handle, serialize($toSave));
             fclose($handle);
         }
-        //creation de la fonction RetrieveObject (unserialize)
+        //creation de la fonctionj RetrieveObject (unserialize)
         public function RetrieveObject($filename) {
             $handle = fopen($filename, "r");
             $filestring = fread($handle, filesize($filename));
@@ -59,15 +58,16 @@
         }
 
         //fonction pour afficher les information de la classe Classe
-        public function afficherInformations(): void {?>
-            <p>Nom de la classe: </p><?= $this->nomClasse ?><br>
-            <p>Nombre d'étudiants:</p> <?= $this->nbrEtudiants ?><br>
-            <p>Liste des étudiants: <br> </p>
-            <?php foreach ($this->etudiants as $etudiant): ?>
-                Nom: <?= $etudiant->nomEtudiant ?><br>
-                Prénom: <?= $etudiant->prenomEtudiant ?><br>
-                Âge: <?= $etudiant->ageEtudiant ?><br><br>
-            <?php endforeach;
+        public function afficherInformations(): void {
+            echo "Nom de la classe: " . $this->nomClasse . "<br>";
+            echo "Nombre d'étudiants: " . $this->nbrEtudiants . "<br>";
+            echo "Liste des étudiants: <br>";
+            foreach ($this->etudiants as $etudiant) {
+                echo "Nom: " . $etudiant->nomEtudiant . "<br>";
+                echo "Prénom: " . $etudiant->prenomEtudiant . "<br>";
+                echo "Âge: " . $etudiant->ageEtudiant . "<br>";
+                echo "<br>";
+            }
         }
         
     }
@@ -87,7 +87,7 @@
     // Utilisation de Serializator pour sauvegarder la classe
     $serializator = new Serializator();
     $serializator->saveState($classe1, "classe_serialized.txt");
- 
+
     // Utilisation de unserialize pour récupérer la classe
     $classeRecuperee = unserialize(file_get_contents("classe_serialized.txt"));
 
@@ -96,10 +96,10 @@
 
     // Vérification si la désérialisation a réussi 
     if (is_object($classeRecuperee)) {
-        ?><h2>Vérification après désérialisation :</h2><?php
+        echo "Vérification apres désérialisation ";
         $classeRecuperee->afficherInformations();
     } else {
-        ?> <p> La désérialisation a échoué. </p><?php ;
+        echo "La désérialisation a échoué. Pignouf";
     }
 
     ?>
