@@ -1,0 +1,10 @@
+Instructions
+Créer un site composé de 2 pages. 
+
+Sur la première page, il y a un formulaire qui demande un nom, un prénom et un nombre et renvoie sur la deuxième page sans qu’on aperçoive ces informations dans l’URL. 
+
+Cette deuxième page, va dans un premier temps souhaiter la bienvenue à « NOM, Prénom » et va afficher autant d’image que le nombre indiqué si ce nombre est 3 au maximum, s’il est supérieur à 3, il affiche les x premières lettres de l’alphabet ainsi. 
+
+Si des images sont affichées, et qu’on clique sur l’image, cette image est remplacée par une autre image. 
+
+Vous devez utiliser JQuery au maximum.
