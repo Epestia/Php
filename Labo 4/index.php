@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <h1> Interro </h1>
+    <h1> Interro web </h1>
     <form id="myForm" action="page2.php" method="post">
         <label for="nom">Nom:</label>
         <input type="text" name="nom" required>
