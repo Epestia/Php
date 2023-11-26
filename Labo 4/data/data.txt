@@ -1,4 +1,3 @@
-Instructions
 Créer un site composé de 2 pages. 
 
 Sur la première page, il y a un formulaire qui demande un nom, un prénom et un nombre et renvoie sur la deuxième page sans qu’on aperçoive ces informations dans l’URL. 
