@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./Jquery/jquery-3.7.1.min.js"></script>
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" type="text/css" href="./css/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <script src="./js/script.js"></script> 
+    <title>Document</title> 
 </head>
 <body>
-<div class="container">
-    <?php
-    // Vérifier si le formulaire a été soumis
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Récupérer les données du formulaire
-        $nom = htmlspecialchars($_POST["nom"]);
-        $prenom = htmlspecialchars($_POST["prenom"]);
-        $nombre = intval($_POST["nombre"]);
+<?php
+    session_start();
 
-        // Afficher le message de bienvenue
-        echo "<p>Bienvenue $nom !</p>";
+    // Accéder aux données du formulaire
+    $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+    $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
-        // Afficher les images en fonction du nombre
-        if ($nombre <= 3) {
-            // Afficher le nombre d'images spécifié
-            $randomImageNumber = rand(1, 6); 
-            echo "<img src='./img/image_$randomImageNumber.jpg'alt='Image $randomImageNumber'>";
-            }
-        } else {
-            // Afficher les premières lettres de l'alphabet
-            for ($i = 1; $i <= 3; $i++) {
-                $letter = chr(ord('A') + $i - 1);
-                echo "<img src='image_$letter.jpg' alt='Image $letter'>";
-            }
-        }
+    session_unset();
+    session_destroy();
     ?>
-</div>
+    <h2>Bienvenue <?php echo $prenom .' ' . $nom; ?> !</h2> 
+    <br>
+    <?php
 
-
+    if ($nombre <= 3) {
+        // Afficher le nombre d'images spécifié
+        for ($i = 1; $i <= $nombre; $i++) {
+            echo '<img src="img/image_' . $i . '.jpg" alt="Image ' . $i . '" class="clickable" data-index="' . $i . '">';
+        }
+    } else {
+        // Afficher les x premières lettres de l'alphabet
+        $maxLetters = min($nombre, 26);
+        for ($i = 1; $i <= $maxLetters; $i++) {
+            // Convertir le numéro en lettre (A, B, C, ...)
+            $letter = chr(64 + $i); 
+            echo '<span class="clickable" data-index="' . $i . '">' . $letter . '</span>';
+        }
+    }
+?>
 
 </body>
 </html>
