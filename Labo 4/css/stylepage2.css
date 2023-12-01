@@ -1,0 +1,27 @@
+p{
+    
+    text-align: center;      
+    font-size: 1.3em;
+    color:rgb(16, 6, 108);
+}
+
+h1{
+    text-align: center;
+}
+
+body
+{
+    text-align: center;    
+    background: url(../img/beach.jpg) no-repeat fixed 50% 50%;
+    background-color : lightcyan;
+}
+
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+}
+  
